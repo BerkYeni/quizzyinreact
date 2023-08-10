@@ -1,5 +1,5 @@
 # quizzyinreact
-A clone of quizzyInTypeScript that is entirely rewritten in React.js.
+A clone of [quizzyInTypeScript](https://github.com/BerkYeni/quizzyInTypeScript) that is entirely rewritten in React.js.
 
 This project is part of a learning experiment about differences between two projects that are written in Vanilla TypeScript and React.js.
 
