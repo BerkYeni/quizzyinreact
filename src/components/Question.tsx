@@ -27,7 +27,7 @@ const Question: React.FC = () => {
   const { questionText, choices, correctAnswer, playerAnswer } = question;
 
   const fetchQuestions = async () => {
-    const response = await fetch("https://the-trivia-api.com/v2/questions");
+    const response = await fetch("insert api");
     const questionsData = await response.json();
     const constructedQuestions = questionsData.map(
       (question: IApiQuestion): IQuestion => {
@@ -58,7 +58,65 @@ const Question: React.FC = () => {
 
   useEffect(() => {
     if (!fetchQuestionsInitiated) {
-      fetchQuestions();
+      // fetchQuestions();
+      const placeholderQuestions = [
+        {
+          questionText: "Which's the tallest mountain in the world?",
+          playerAnswer: null,
+          choices: [
+            "Mountain Everest",
+            "Matterhorn",
+            "Mount Kilimanjaro",
+            "Mount Fuji",
+          ],
+          correctAnswer: "Mountain Everest",
+        },
+        {
+          questionText:
+            "Who's the actress that played Jane Smith in the movie Mr. & Mrs. Smith?",
+          playerAnswer: null,
+          choices: [
+            "Helena Bonham Carter",
+            "Reese Witherspoon",
+            "Angelina Jolie",
+            "Sandra Bullock",
+          ],
+          correctAnswer: "Angelina Jolie",
+        },
+        {
+          questionText: "Who's the singer of the song Smooth Criminal?",
+          playerAnswer: null,
+          choices: [
+            "Michael Jackson",
+            "Madonna",
+            "Mariah Carey",
+            "Garth Brooks",
+          ],
+          correctAnswer: "Michael Jackson",
+        },
+        {
+          questionText:
+            "Who's the Serbian-American inventor known for his contributions to alternating current?",
+          playerAnswer: null,
+          choices: [
+            "Henry Ford",
+            "Nikola Tesla",
+            "Alexander Graham Bell",
+            "Steve Jobs",
+          ],
+          correctAnswer: "Nikola Tesla",
+        },
+        {
+          questionText:
+            "Who's the Greek philosopher who wrote the Legend of Atlantis?",
+          playerAnswer: null,
+          choices: ["Plato", "Sun Tzu", "Bobby Hill", "Ibn Sina"],
+          correctAnswer: "Plato",
+        },
+      ];
+      setQuestions(placeholderQuestions);
+      setQuestion(placeholderQuestions[0]);
+      setIsLoaded(true);
       fetchQuestionsInitiated = true;
     }
   }, []);
